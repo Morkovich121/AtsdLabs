@@ -4,19 +4,37 @@ using System.Text;
 
 namespace Lab1
 {
+    /// <summary>
+    /// Односвязный список
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     class LinkedList<T> where T: IComparable<T>
     {
+        /// <summary>
+        /// Первый элемент списка
+        /// </summary>
         public Item<T> Head;
-
+        /// <summary>
+        /// Последний элемент списка
+        /// </summary>
         public Item<T> Tail;
-
+        /// <summary>
+        /// Длина списка
+        /// </summary>
         public int Count;
+        /// <summary>
+        /// Конструктор пустого списка
+        /// </summary>
         public LinkedList()
         {
             Head = null;
             Tail = null;
             Count = 0;
         }
+        /// <summary>
+        /// Конструктор списка с 1 элементом
+        /// </summary>
+        /// <param name="data"></param>
         public LinkedList(T data)
         {
             var item = new Item<T>(data);
@@ -24,6 +42,9 @@ namespace Lab1
             Tail = item;
             Count = 1;
         }
+        /// <summary>
+        /// Функция сортировки списка
+        /// </summary>
         public void sort()
         {
             for(int j = 0; j < Count; j++)
@@ -42,7 +63,10 @@ namespace Lab1
                 }
             }
         }
-
+        /// <summary>
+        /// Функция добавления элемента
+        /// </summary>
+        /// <param name="data"></param>
         public void AddItem(T data)
         {
             var item = new Item<T>(data);
@@ -60,6 +84,10 @@ namespace Lab1
             }
             sort();
         }
+        /// <summary>
+        /// Функция удаления элемента
+        /// </summary>
+        /// <param name="data"></param>
         public void DeleteItem(T data)
         {
             if(Head != null)
@@ -88,23 +116,34 @@ namespace Lab1
                 }
             }
         }
+        /// <summary>
+        /// Функция очистки списка
+        /// </summary>
         public void clear()
         {
             Head = null;
             Tail = null;
             Count = 0;
         }
-
+        /// <summary>
+        /// Функция для проверки, пустой ли список
+        /// </summary>
+        /// <returns></returns>
         public bool IsEmpty()
         {
             return Count == 0;
         }
-
+        /// <summary>
+        /// Функция возврата длины списка
+        /// </summary>
+        /// <returns></returns>
         public int Length()
         {
             return Count;
         }
-
+        /// <summary>
+        /// Функция вывода списка
+        /// </summary>
         public void PrintList()
         {
             var current = Head;
@@ -118,7 +157,11 @@ namespace Lab1
             }
             Console.WriteLine(result);
         }
-
+        /// <summary>
+        /// Функция для проверки, есть ли элемент в списке
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
         public bool Search(T data)
         {
             var current = Head;
