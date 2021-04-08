@@ -17,5 +17,12 @@ namespace Lab1
             Tail = null;
             Count = 0;
         }
+        public LinkedList(T data)
+        {
+            var item = new Item<T>(data);
+            Head = item;
+            Tail = item;
+            Count = 1;
+        }
     }
 }
