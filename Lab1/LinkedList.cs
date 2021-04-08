@@ -85,9 +85,14 @@ namespace Lab1
 
                     previous = current;
                     current = current.Next;
-
                 }
             }
+        }
+        public void clear()
+        {
+            Head = null;
+            Tail = null;
+            Count = 0;
         }
     }
 }
