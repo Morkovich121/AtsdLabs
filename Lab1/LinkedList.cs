@@ -94,5 +94,10 @@ namespace Lab1
             Tail = null;
             Count = 0;
         }
+
+        public bool IsEmpty()
+        {
+            return Count == 0;
+        }
     }
 }
