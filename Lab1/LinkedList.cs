@@ -99,5 +99,10 @@ namespace Lab1
         {
             return Count == 0;
         }
+
+        public int Length()
+        {
+            return Count;
+        }
     }
 }
