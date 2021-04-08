@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lab1
 {
-    class Item<T>
+     public class Item<T>
     {
         /// <summary>
         /// Данные хранимые в ячейке списка

@@ -8,20 +8,20 @@ namespace Lab1
     /// Односвязный список
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    class LinkedList<T> where T: IComparable<T>
+    public class LinkedList<T> where T: IComparable<T>
     {
         /// <summary>
         /// Первый элемент списка
         /// </summary>
-        public Item<T> Head;
+        public Item<T> Head { get; private set; }
         /// <summary>
         /// Последний элемент списка
         /// </summary>
-        public Item<T> Tail;
+        public Item<T> Tail { get; private set; }
         /// <summary>
         /// Длина списка
         /// </summary>
-        public int Count;
+        public int Count { get; private set; }
         /// <summary>
         /// Конструктор пустого списка
         /// </summary>
