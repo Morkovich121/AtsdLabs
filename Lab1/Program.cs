@@ -26,6 +26,10 @@ namespace Lab1
             Tail = null;
             Count = 0;
         }
+        /// <summary>
+        /// функция добавления элемента
+        /// </summary>
+        /// <param name="data"></param>
         public void AddItemForRead(Item<int> data)
         {
             var item = data;
@@ -44,12 +48,18 @@ namespace Lab1
             }
             sort();
         }
+        /// <summary>
+        /// Функция очистки списка
+        /// </summary>
         public void clear()
         {
             Head = null;
             Tail = null;
             Count = 0;
         }
+        /// <summary>
+        /// Функция записи значений из строки
+        /// </summary>
         public void Read()
         {
             clear();
@@ -64,7 +74,11 @@ namespace Lab1
                 AddItemForRead(c[i]);
             }
         }
-        public string PrintList()
+        /// <summary>
+        /// Функция вывода списка
+        /// </summary>
+        /// <returns></returns>
+        public void PrintList()
         {
             var current = Head;
             var result = "";
@@ -75,8 +89,11 @@ namespace Lab1
                 result += " ";
                 current = current.Next;
             }
-            return result;
+            Console.WriteLine(result);
         }
+        /// <summary>
+        /// Функция сортировки списка
+        /// </summary>
         public void sort()
         {
             for (int j = 0; j < Count; j++)
@@ -104,6 +121,18 @@ namespace Lab1
         static void Main(string[] args)
         {
             var arr2 = new LinkedListForRead<int>();
+            arr2.Read();
+            arr2.PrintList();
+            var arr1 = new LinkedList<int>();
+            arr1.AddItem(5);
+            arr1.AddItem(6);
+            arr1.AddItem(3);
+            arr1.AddItem(7);
+            Console.WriteLine(arr1.Search(7));
+            Console.WriteLine(arr1.Search(8));
+            arr1.DeleteItem(7);
+            Console.WriteLine(arr1.IsEmpty());
+            arr1.PrintList();
         }
     }
 }

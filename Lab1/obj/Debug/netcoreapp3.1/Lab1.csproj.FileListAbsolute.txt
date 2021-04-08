@@ -2,3 +2,12 @@ C:\Users\user\Desktop\Программирование\c#\Учеба_униве�
 C:\Users\user\Desktop\Программирование\c#\Учеба_универ\Lab1Git\Lab1\obj\Debug\netcoreapp3.1\Lab1.AssemblyInfoInputs.cache
 C:\Users\user\Desktop\Программирование\c#\Учеба_универ\Lab1Git\Lab1\obj\Debug\netcoreapp3.1\Lab1.AssemblyInfo.cs
 C:\Users\user\Desktop\Программирование\c#\Учеба_универ\Lab1Git\Lab1\obj\Debug\netcoreapp3.1\Lab1.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Программирование\c#\Учеба_универ\Lab1Git\Lab1\bin\Debug\netcoreapp3.1\Lab1.exe
+C:\Users\user\Desktop\Программирование\c#\Учеба_универ\Lab1Git\Lab1\bin\Debug\netcoreapp3.1\Lab1.deps.json
+C:\Users\user\Desktop\Программирование\c#\Учеба_универ\Lab1Git\Lab1\bin\Debug\netcoreapp3.1\Lab1.runtimeconfig.json
+C:\Users\user\Desktop\Программирование\c#\Учеба_универ\Lab1Git\Lab1\bin\Debug\netcoreapp3.1\Lab1.runtimeconfig.dev.json
+C:\Users\user\Desktop\Программирование\c#\Учеба_универ\Lab1Git\Lab1\bin\Debug\netcoreapp3.1\Lab1.dll
+C:\Users\user\Desktop\Программирование\c#\Учеба_универ\Lab1Git\Lab1\bin\Debug\netcoreapp3.1\Lab1.pdb
+C:\Users\user\Desktop\Программирование\c#\Учеба_универ\Lab1Git\Lab1\obj\Debug\netcoreapp3.1\Lab1.dll
+C:\Users\user\Desktop\Программирование\c#\Учеба_универ\Lab1Git\Lab1\obj\Debug\netcoreapp3.1\Lab1.pdb
+C:\Users\user\Desktop\Программирование\c#\Учеба_универ\Lab1Git\Lab1\obj\Debug\netcoreapp3.1\Lab1.genruntimeconfig.cache
