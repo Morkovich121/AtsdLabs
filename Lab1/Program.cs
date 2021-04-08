@@ -50,7 +50,20 @@ namespace Lab1
             Tail = null;
             Count = 0;
         }
-
+        public void Read()
+        {
+            clear();
+            string s = Console.ReadLine();
+            var a = s.Split(" ");
+            int[] b = new int[a.Length];
+            Item<int>[] c = new Item<int>[a.Length];
+            for (int i = 0; i < a.Length; i++)
+            {
+                b[i] = Int32.Parse(a[i]);
+                c[i] = new Item<int>(b[i]);
+                AddItemForRead(c[i]);
+            }
+        }
         public string PrintList()
         {
             var current = Head;
