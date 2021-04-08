@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lab1
 {
-    class LinkedList<T>
+    class LinkedList<T> where T: IComparable<T>
     {
         public Item<T> Head;
 
@@ -23,6 +23,24 @@ namespace Lab1
             Head = item;
             Tail = item;
             Count = 1;
+        }
+        public void sort()
+        {
+            for(int j = 0; j < Count; j++)
+            {
+                var current = Head;
+                
+                for(int i = 0; i < Count - 1; i++)
+                {
+                    if (current.Next != null && current.Data.CompareTo(current.Next.Data) > 0)
+                    {
+                        var temp = current.Data;
+                        current.setItem(current.Next.Data);
+                        current.Next.setItem(temp);
+                    }
+                    current = current.Next;
+                }
+            }
         }
     }
 }
