@@ -60,5 +60,34 @@ namespace Lab1
             }
             sort();
         }
+        public void DeleteItem(T data)
+        {
+            if(Head != null)
+            {
+                if (Head.Data.Equals(data))
+                {
+                    Head = Head.Next;
+                    Count--;
+                    return;
+                }
+
+                var current = Head.Next;
+                var previous = Head;
+
+                while (current != null)
+                {
+                    if (current.Data.Equals(data))
+                    {
+                        previous.Next = current.Next;
+                        Count--;
+                        return;
+                    }
+
+                    previous = current;
+                    current = current.Next;
+
+                }
+            }
+        }
     }
 }
