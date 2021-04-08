@@ -133,6 +133,7 @@ namespace Lab1
             arr1.DeleteItem(7);
             Console.WriteLine(arr1.IsEmpty());
             arr1.PrintList();
+            Console.WriteLine("Все работает");
         }
     }
 }
