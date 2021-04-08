@@ -118,5 +118,19 @@ namespace Lab1
             }
             Console.WriteLine(result);
         }
+
+        public bool Search(T data)
+        {
+            var current = Head;
+            while (current != null)
+            {
+                if (current.Data.Equals(data))
+                {
+                    return true;
+                }
+                current = current.Next;
+            }
+            return false;
+        }
     }
 }
