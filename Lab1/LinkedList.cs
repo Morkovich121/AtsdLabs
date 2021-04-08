@@ -104,5 +104,19 @@ namespace Lab1
         {
             return Count;
         }
+
+        public void PrintList()
+        {
+            var current = Head;
+            var result = "";
+
+            while(current != null)
+            {
+                result += current.Data;
+                result += " ";
+                current = current.Next;
+            }
+            Console.WriteLine(result);
+        }
     }
 }
