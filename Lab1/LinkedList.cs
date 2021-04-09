@@ -13,15 +13,15 @@ namespace Lab1
         /// <summary>
         /// Первый элемент списка
         /// </summary>
-        public Item<T> Head { get; private set; }
+        public Item<T> Head;
         /// <summary>
         /// Последний элемент списка
         /// </summary>
-        public Item<T> Tail { get; private set; }
+        public Item<T> Tail;
         /// <summary>
         /// Длина списка
         /// </summary>
-        public int Count { get; private set; }
+        public int Count;
         /// <summary>
         /// Конструктор пустого списка
         /// </summary>

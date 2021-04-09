@@ -8,15 +8,15 @@ namespace Lab1
         /// <summary>
         /// Первый элемент списка
         /// </summary>
-        public Item<int> Head { get; private set; }
+        public Item<int> Head;
         /// <summary>
         /// Последний элемент списка
         /// </summary>
-        public Item<int> Tail { get; private set; }
+        public Item<int> Tail;
         /// <summary>
         /// Длина списка
         /// </summary>
-        public int Count { get; private set; }
+        public int Count;
         /// <summary>
         /// Создать пустой список
         /// </summary>
@@ -133,7 +133,6 @@ namespace Lab1
             arr1.DeleteItem(7);
             Console.WriteLine(arr1.IsEmpty());
             arr1.PrintList();
-            Console.WriteLine("Все работает");
         }
     }
 }
