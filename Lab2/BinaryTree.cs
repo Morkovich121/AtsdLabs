@@ -551,5 +551,22 @@ namespace Lab2
             if (check_check == 0) Console.WriteLine(true);
             else Console.WriteLine(false);
         }
+
+        /// <summary>
+        /// Возвращает родителя указанного узла
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="result"></param>
+        /// <param name="k"></param>
+        /// <param name="side"></param>
+        private void FatherNode(BinaryTreeNode<T> node, ref int result, int k, Side? side = null)
+        {
+            if (node != null)
+            {
+                if (node.Data == k) result = node.ParentNode.Data;
+                FatherNode(node.LeftNode, ref result, k, Side.Left); // обойти левое поддерево
+                FatherNode(node.RightNode, ref result, k, Side.Right); // обойти правое поддерево
+            }
+        }
     }
 }
