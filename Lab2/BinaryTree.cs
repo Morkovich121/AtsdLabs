@@ -327,6 +327,16 @@ namespace Lab2
             Console.WriteLine(arr[1]);
         }
 
+        /// <summary>
+        /// Проверка равны ли 2 дерева
+        /// </summary>
+        /// <param name="obj"></param>
+        public void EqualsBBST(BinaryTree<T> obj)
+        {
+            var res = 0;
+            EqualsBBST(obj.RootNode, RootNode, ref res);
+            Console.WriteLine(res == 0);
+        }
         private void EqualsBBST(BinaryTreeNode<T> startNode2, BinaryTreeNode<T> startNode, ref int result, Side? side = null)
         {
             if (startNode != null && startNode2 != null)
