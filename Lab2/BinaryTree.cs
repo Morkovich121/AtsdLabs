@@ -237,5 +237,17 @@ namespace Lab2
                 PrintTree(startNode.RightNode, indent, Side.Right);
             }
         }
+
+        private void DeleteEven(BinaryTreeNode<T> startNode, int result = 0, Side? side = null)
+        {
+            if (startNode != null)
+            {
+                if (startNode.Data % 2 == 0)
+                    Remove(startNode);
+                //рекурсивный вызов для левой и правой веток
+                DeleteEven(startNode.LeftNode, result, Side.Left);
+                DeleteEven(startNode.RightNode, result, Side.Right);
+            }
+        }
     }
 }
