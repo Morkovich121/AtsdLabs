@@ -6,7 +6,7 @@ namespace Lab2
     {
         static void Main(string[] args)
         {
-            
+            var a = 5;
         }
     }
 }
