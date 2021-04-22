@@ -653,5 +653,15 @@ namespace Lab2
                 LCR(node.RightNode, ref s); // обойти правое поддерево
             }
         }
+
+        private void LRC(BinaryTreeNode<T> node, ref string s)
+        {
+            if (node != null)
+            {
+                LRC(node.LeftNode, ref s); // обойти левое поддерево
+                LRC(node.RightNode, ref s); // обойти правое поддерево
+                s += node.Data.ToString() + " "; // запомнить текущее значение;
+            }
+        }
     }
 }
