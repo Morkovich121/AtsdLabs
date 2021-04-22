@@ -672,5 +672,52 @@ namespace Lab2
                 s += node.Data.ToString() + " "; // запомнить текущее значение;
             }
         }
+
+        /// <summary>
+        /// Проверка на сбалансированность дерева
+        /// </summary>
+        public void IsBalanced()
+        {
+            bool balance = true;
+            int heightLeftNode = HeightLeftNode(RootNode);
+            Foo(RootNode, 1);
+            if (balance == false)
+            {
+                Console.WriteLine("Дерево не сбалансированно");
+            }
+            else
+            {
+                Console.WriteLine("Дерево сбалансированно");
+            }
+
+            void Foo(BinaryTreeNode<T> node, int height)
+            {
+                if (node.LeftNode == null)
+                {
+                    if (Math.Abs(heightLeftNode - height) > 1)
+                        balance = false;
+                }
+                else
+                    Foo(node.LeftNode, height + 1);
+
+                if (node.RightNode == null)
+                {
+                    if (Math.Abs(heightLeftNode - height) > 1)
+                        balance = false;
+                }
+                else
+                    Foo(node.RightNode, height + 1);
+            }
+        }
+
+        /// <summary>
+        /// Высота левого подкорня дерева
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
+        public int HeightLeftNode(BinaryTreeNode<T> node)
+        {
+            return node == null ? 0 : (HeightLeftNode(node.LeftNode) + 1);
+        }
     }
 }
