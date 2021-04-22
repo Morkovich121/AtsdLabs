@@ -63,5 +63,17 @@ namespace Lab2
         {
             return Add(new BinaryTreeNode<T>(data));
         }
+
+        private void CopyBBST(BinaryTreeNode<T> startNode, ref BinaryTreeNode<T> newNode, Side? side = null)
+        {
+            if (startNode != null)
+            {
+                var temp = startNode;
+                newNode = temp;
+                CopyBBST(startNode.LeftNode, ref newNode.LeftNode, Side.Left);
+                CopyBBST(startNode.RightNode, ref newNode.RightNode, Side.Right);
+            }
+
+        }
     }
 }
