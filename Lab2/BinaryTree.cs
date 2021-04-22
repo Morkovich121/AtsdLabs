@@ -638,7 +638,12 @@ namespace Lab2
         /// <summary>
         /// Алгоритм обхода InOrder
         /// </summary>
-        
+        public void LCR()
+        {
+            var s = "";
+            LCR(RootNode, ref s);
+            Console.WriteLine(s);
+        }
         private void LCR(BinaryTreeNode<T> node, ref string s)
         {
             if (node != null)
