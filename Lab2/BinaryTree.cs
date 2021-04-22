@@ -490,5 +490,66 @@ namespace Lab2
                 Add(arr[i]);
             }
         }
+
+        /// <summary>
+        /// Проверка, все ли значения obj есть в дереве
+        /// </summary>
+        /// <param name="obj"></param>
+        public void ContainsBBST(BinaryTree<T> obj)
+        {
+            var s = "";
+            PrintSorted(obj.RootNode, ref s);
+            var arr1 = s.Split(" ");
+            int[] arr = new int[arr1.Length - 1];
+            for (int i = 0; i < arr1.Length - 1; i++)
+            {
+                arr[i] = Int32.Parse(arr1[i]);
+            }
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                for (int j = 0; j < arr.Length - 1; j++)
+                {
+                    if (arr[j] > arr[j + 1])
+                    {
+                        int z = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = z;
+                    }
+                }
+            }
+            var ss = "";
+            PrintSorted(RootNode, ref ss);
+            var arrr1 = ss.Split(" ");
+            int[] arrr = new int[arrr1.Length - 1];
+            for (int i = 0; i < arrr1.Length - 1; i++)
+            {
+                arrr[i] = Int32.Parse(arrr1[i]);
+            }
+            for (int i = 0; i < arrr.Length - 1; i++)
+            {
+                for (int j = 0; j < arrr.Length - 1; j++)
+                {
+                    if (arrr[j] > arrr[j + 1])
+                    {
+                        int z = arrr[j];
+                        arrr[j] = arrr[j + 1];
+                        arrr[j + 1] = z;
+                    }
+                }
+            }
+            var check = 0;
+            var check_check = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                check = -1;
+                for (int j = 0; j < arrr.Length; j++)
+                {
+                    if (arr[i] == arrr[j]) check = 0;
+                }
+                if (check == -1) check_check = -1;
+            }
+            if (check_check == 0) Console.WriteLine(true);
+            else Console.WriteLine(false);
+        }
     }
 }
