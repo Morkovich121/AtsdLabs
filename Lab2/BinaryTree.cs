@@ -720,7 +720,15 @@ namespace Lab2
             return node == null ? 0 : (HeightLeftNode(node.LeftNode) + 1);
         }
 
-
+        /// <summary>
+        /// Функция добавления для симметричного копирования
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public BinaryTreeNode<T> AddSymm(int data)
+        {
+            return AddSymm(new BinaryTreeNode<T>(data));
+        }
         private BinaryTreeNode<T> AddSymm(BinaryTreeNode<T> node, BinaryTreeNode<T> currentNode = null)
         {
             if (RootNode == null)
