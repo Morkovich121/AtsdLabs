@@ -63,7 +63,14 @@ namespace Lab2
         {
             return Add(new BinaryTreeNode<T>(data));
         }
-
+        /// <summary>
+        /// Копирует выбранное дерево
+        /// </summary>
+        /// <param name="obj"></param>
+        public void CopyBBST(BinaryTree<T> obj)
+        {
+            CopyBBST(obj.RootNode, ref RootNode);
+        }
         private void CopyBBST(BinaryTreeNode<T> startNode, ref BinaryTreeNode<T> newNode, Side? side = null)
         {
             if (startNode != null)
