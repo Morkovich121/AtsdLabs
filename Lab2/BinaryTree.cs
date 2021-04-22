@@ -634,5 +634,19 @@ namespace Lab2
             }
             return result;
         }
+
+        /// <summary>
+        /// Алгоритм обхода InOrder
+        /// </summary>
+        
+        private void LCR(BinaryTreeNode<T> node, ref string s)
+        {
+            if (node != null)
+            {
+                LCR(node.LeftNode, ref s); // обойти левое поддерево
+                s += node.Data.ToString() + " "; // запомнить текущее значение;
+                LCR(node.RightNode, ref s); // обойти правое поддерево
+            }
+        }
     }
 }
