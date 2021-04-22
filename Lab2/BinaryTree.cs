@@ -11,5 +11,52 @@ namespace Lab2
         /// </summary>
         public BinaryTreeNode<T> RootNode;
 
+        /// <summary>
+        /// Добавление нового узла в бинарное дерево
+        /// </summary>
+        /// <param name="node">Новый узел</param>
+        /// <param name="currentNode">Текущий узел</param>
+        /// <returns>Узел</returns>
+        public BinaryTreeNode<T> Add(BinaryTreeNode<T> node, BinaryTreeNode<T> currentNode = null)
+        {
+            if (RootNode == null)
+            {
+                node.ParentNode = null;
+                return RootNode = node;
+            }
+
+            currentNode = currentNode ?? RootNode;
+            node.ParentNode = currentNode;
+            int result = node.Data.CompareTo(currentNode.Data);
+            if (result == 0)
+            {
+                return currentNode;
+            }
+            else
+            {
+                if (result < 0)
+                {
+                    if (currentNode.LeftNode == null)
+                    {
+                        return currentNode.LeftNode = node;
+                    }
+                    else
+                    {
+                        return Add(node, currentNode.LeftNode);
+                    }
+                }
+                else
+                {
+                    if (currentNode.RightNode == null)
+                    {
+                        return currentNode.RightNode = node;
+                    }
+                    else
+                    {
+                        return Add(node, currentNode.RightNode);
+                    }
+                }
+            }
+        }
     }
 }
