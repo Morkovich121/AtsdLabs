@@ -770,5 +770,21 @@ namespace Lab2
                 }
             }
         }
+
+        public void SymmetricalBBST(BinaryTree<T> obj)
+        {
+            var s = "";
+            PrintSorted(obj.RootNode, ref s);
+            var arr1 = s.Split(" ");
+            int[] arr = new int[arr1.Length - 1];
+            for (int i = 0; i < arr1.Length - 1; i++)
+            {
+                arr[i] = Int32.Parse(arr1[i]);
+            }
+            for (int i = 0; i < arr.Length; i++)
+            {
+                AddSymm(arr[i]);
+            }
+        }
     }
 }
