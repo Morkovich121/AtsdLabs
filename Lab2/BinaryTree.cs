@@ -654,6 +654,15 @@ namespace Lab2
             }
         }
 
+        /// <summary>
+        /// Алгоритм обхода PostOrder
+        /// </summary>
+        public void LRC()
+        {
+            var s = "";
+            LRC(RootNode, ref s);
+            Console.WriteLine(s);
+        }
         private void LRC(BinaryTreeNode<T> node, ref string s)
         {
             if (node != null)
