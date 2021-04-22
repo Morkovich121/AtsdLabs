@@ -12,6 +12,12 @@ namespace Lab2
         public BinaryTreeNode<T> RootNode;
 
         /// <summary>
+        /// Конструктор пустого дерева
+        /// </summary>
+        public BinaryTree()
+        {
+        }
+        /// <summary>
         /// Добавление нового узла в бинарное дерево
         /// </summary>
         /// <param name="node">Новый узел</param>
