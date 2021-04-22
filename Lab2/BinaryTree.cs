@@ -257,6 +257,15 @@ namespace Lab2
             }
         }
 
+        /// <summary>
+        /// Количество левых значений
+        /// </summary>
+        public void CountNode()
+        {
+            var s = 0;
+            CountNode(RootNode, ref s, false);
+            Console.WriteLine("Количество левых значений: " + s);
+        }
         private void CountNode(BinaryTreeNode<T> node, ref int s, bool detailed, Side? side = null)
         {
             if (node != null)
