@@ -719,5 +719,48 @@ namespace Lab2
         {
             return node == null ? 0 : (HeightLeftNode(node.LeftNode) + 1);
         }
+
+
+        private BinaryTreeNode<T> AddSymm(BinaryTreeNode<T> node, BinaryTreeNode<T> currentNode = null)
+        {
+            if (RootNode == null)
+            {
+                node.ParentNode = null;
+                return RootNode = node;
+            }
+
+            currentNode = currentNode ?? RootNode;
+            node.ParentNode = currentNode;
+            int result = node.Data.CompareTo(currentNode.Data);
+            if (result == 0)
+            {
+                return currentNode;
+            }
+            else
+            {
+                if (result > 0)
+                {
+                    if (currentNode.LeftNode == null)
+                    {
+                        return currentNode.LeftNode = node;
+                    }
+                    else
+                    {
+                        return AddSymm(node, currentNode.LeftNode);
+                    }
+                }
+                else
+                {
+                    if (currentNode.RightNode == null)
+                    {
+                        return currentNode.RightNode = node;
+                    }
+                    else
+                    {
+                        return AddSymm(node, currentNode.RightNode);
+                    }
+                }
+            }
+        }
     }
 }
