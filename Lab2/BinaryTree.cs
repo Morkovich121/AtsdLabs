@@ -87,6 +87,88 @@ namespace Lab2
                 CopyBBST(startNode.RightNode, ref newNode.RightNode, Side.Right);
             }
         }
+
+        /// <summary>
+        /// Удаление узла бинарного дерева
+        /// </summary>
+        /// <param name="node">Узел для удаления</param>
+        public void Remove(BinaryTreeNode<T> node)
+        {
+            if (node == null)
+            {
+                return;
+            }
+
+            var currentNodeSide = node.NodeSide;
+            //если у узла нет подузлов, можно его удалить
+            if (node.LeftNode == null && node.RightNode == null)
+            {
+                if (currentNodeSide == Side.Left)
+                {
+                    node.ParentNode.LeftNode = null;
+                }
+                else
+                {
+                    node.ParentNode.RightNode = null;
+                }
+            }
+            //если нет левого, то правый ставим на место удаляемого 
+            else if (node.LeftNode == null)
+            {
+                if (currentNodeSide == Side.Left)
+                {
+                    node.ParentNode.LeftNode = node.RightNode;
+                }
+                else
+                {
+                    node.ParentNode.RightNode = node.RightNode;
+                }
+
+                node.RightNode.ParentNode = node.ParentNode;
+            }
+            //если нет правого, то левый ставим на место удаляемого 
+            else if (node.RightNode == null)
+            {
+                if (currentNodeSide == Side.Left)
+                {
+                    node.ParentNode.LeftNode = node.LeftNode;
+                }
+                else
+                {
+                    node.ParentNode.RightNode = node.LeftNode;
+                }
+
+                node.LeftNode.ParentNode = node.ParentNode;
+            }
+            //если оба дочерних присутствуют, 
+            //то правый становится на место удаляемого,
+            //а левый вставляется в правый
+            else
+            {
+                switch (currentNodeSide)
+                {
+                    case Side.Left:
+                        node.ParentNode.LeftNode = node.RightNode;
+                        node.RightNode.ParentNode = node.ParentNode;
+                        Add(node.LeftNode, node.RightNode);
+                        break;
+                    case Side.Right:
+                        node.ParentNode.RightNode = node.RightNode;
+                        node.RightNode.ParentNode = node.ParentNode;
+                        Add(node.LeftNode, node.RightNode);
+                        break;
+                    default:
+                        var bufLeft = node.LeftNode;
+                        var bufRightLeft = node.RightNode.LeftNode;
+                        var bufRightRight = node.RightNode.RightNode;
+                        node.Data = node.RightNode.Data;
+                        node.RightNode = bufRightRight;
+                        node.LeftNode = bufRightLeft;
+                        Add(bufLeft, node);
+                        break;
+                }
+            }
+        }
         /// <summary>
         /// Поиск узла по значению
         /// </summary>

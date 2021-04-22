@@ -12,8 +12,22 @@ namespace Lab2
         Left,
         Right
     }
-    class BinaryTreeNode<T> where T : IComparable
-    {   
+
+    /// <summary>
+    /// Узел бинарного дерева
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public class BinaryTreeNode<T> where T : IComparable
+    {
+        /// <summary>
+        /// Конструктор класса
+        /// </summary>
+        /// <param name="data">Данные</param>
+        public BinaryTreeNode(int data)
+        {
+            Data = data;
+        }
+
         /// <summary>
         /// Данные которые хранятся в узле
         /// </summary>
@@ -38,13 +52,5 @@ namespace Lab2
         /// Расположение узла относительно его родителя
         /// </summary>
         public Side? NodeSide => ParentNode == null ? (Side?)null : ParentNode.LeftNode == this ? Side.Left : Side.Right;
-        /// <summary>
-        /// Конструктор класса
-        /// </summary>
-        /// <param name="data">Данные</param>
-        public BinaryTreeNode(int data)
-        {
-            Data = data;
-        }
     }
 }
