@@ -86,7 +86,43 @@ namespace Lab2
                 CopyBBST(startNode.LeftNode, ref newNode.LeftNode, Side.Left);
                 CopyBBST(startNode.RightNode, ref newNode.RightNode, Side.Right);
             }
-
+        }
+        /// <summary>
+        /// Поиск узла по значению
+        /// </summary>
+        /// <param name="data">Искомое значение</param>
+        /// <param name="startWithNode">Узел начала поиска</param>
+        /// <returns>Найденный узел</returns>
+        public BinaryTreeNode<T> FindNode(T data, BinaryTreeNode<T> startWithNode = null)
+        {
+            if (startWithNode == null)
+            {
+                startWithNode = RootNode;
+            }
+            int result = data.CompareTo(startWithNode.Data);
+            if (result == 0)
+            {
+                return startWithNode;
+            }
+            else
+            {
+                if (result < 0)
+                {
+                    if (startWithNode.LeftNode == null)
+                    {
+                        return null;
+                    }
+                    else return FindNode(data, startWithNode.LeftNode);
+                }
+                else
+                {
+                    if (startWithNode.RightNode == null)
+                    {
+                        return null;
+                    }
+                    else return FindNode(data, startWithNode.RightNode);
+                }
+            }
         }
     }
 }
