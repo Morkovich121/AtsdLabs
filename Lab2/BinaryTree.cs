@@ -276,5 +276,16 @@ namespace Lab2
                 CountNode(node.RightNode, ref s, detailed, Side.Right); // обойти правое поддерево
             }
         }
+
+        private void SumKeys(BinaryTreeNode<T> node, ref int s, bool detailed, Side? side = null)
+        {
+            if (node != null)
+            {
+                if (side == Side.Right)
+                    s += node.Data;
+                SumKeys(node.LeftNode, ref s, detailed, Side.Left); // обойти левое поддерево
+                SumKeys(node.RightNode, ref s, detailed, Side.Right); // обойти правое поддерево
+            }
+        }
     }
 }
