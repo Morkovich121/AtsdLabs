@@ -582,5 +582,57 @@ namespace Lab2
                 Console.WriteLine(result);
             }
         }
+
+        /// <summary>
+        /// Функция поиска ближайшего общего родителя для 2 узлов
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        public int CommonAncestor(int a, int b)
+        {
+            var s = "";
+            LCR(RootNode, ref s);
+            var arr1 = s.Split(" ");
+            int[] arr = new int[arr1.Length - 1];
+            for (int i = 0; i < arr1.Length - 1; i++)
+            {
+                arr[i] = Int32.Parse(arr1[i]);
+            }
+            var save1 = 0;
+            var save2 = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] == a) save1 = i;
+                if (arr[i] == b) save2 = i;
+            }
+
+            var ss = "";
+            LRC(RootNode, ref ss);
+            var arrr1 = ss.Split(" ");
+            int[] arrr = new int[arrr1.Length - 1];
+            for (int i = 0; i < arrr1.Length - 1; i++)
+            {
+                arrr[i] = Int32.Parse(arrr1[i]);
+            }
+
+            var max = -1;
+            var result = 0;
+            for (int i = save1 + 1; i < save2; i++)
+            {
+                for (int j = 0; j < arrr.Length; j++)
+                {
+                    if (arrr[j] == arr[i])
+                    {
+                        if (j > max)
+                        {
+                            result = arrr[j];
+                            max = j;
+                        }
+                    }
+                }
+            }
+            return result;
+        }
     }
 }
