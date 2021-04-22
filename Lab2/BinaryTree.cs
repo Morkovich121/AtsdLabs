@@ -238,6 +238,13 @@ namespace Lab2
             }
         }
 
+        /// <summary>
+        /// Удаление всех четных элементов
+        /// </summary>
+        public void DeleteEven()
+        {
+            DeleteEven(RootNode);
+        }
         private void DeleteEven(BinaryTreeNode<T> startNode, int result = 0, Side? side = null)
         {
             if (startNode != null)
