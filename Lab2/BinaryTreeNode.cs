@@ -4,16 +4,16 @@ using System.Text;
 
 namespace Lab2
 {
-    class BinaryTreeNode<T> where T : IComparable
+    /// <summary>
+    /// Расположения узла относительно родителя
+    /// </summary>
+    public enum Side
     {
-        /// <summary>
-        /// Расположения узла относительно родителя
-        /// </summary>
-        public enum Side
-        {
-            Left,
-            Right
-        }
+        Left,
+        Right
+    }
+    class BinaryTreeNode<T> where T : IComparable
+    {   
         /// <summary>
         /// Данные которые хранятся в узле
         /// </summary>
@@ -38,5 +38,13 @@ namespace Lab2
         /// Расположение узла относительно его родителя
         /// </summary>
         public Side? NodeSide => ParentNode == null ? (Side?)null : ParentNode.LeftNode == this ? Side.Left : Side.Right;
+        /// <summary>
+        /// Конструктор класса
+        /// </summary>
+        /// <param name="data">Данные</param>
+        public BinaryTreeNode(int data)
+        {
+            Data = data;
+        }
     }
 }
