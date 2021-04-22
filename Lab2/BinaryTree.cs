@@ -459,5 +459,36 @@ namespace Lab2
             }
             Console.WriteLine(result);
         }
+        /// <summary>
+        /// Вставляет все элементы из переметра Obj в дерево
+        /// </summary>
+        /// <param name="obj"></param>
+        public void InsertBBST(BinaryTree<T> obj)
+        {
+            var s = "";
+            PrintSorted(obj.RootNode, ref s);
+            var arr1 = s.Split(" ");
+            int[] arr = new int[arr1.Length - 1];
+            for (int i = 0; i < arr1.Length - 1; i++)
+            {
+                arr[i] = Int32.Parse(arr1[i]);
+            }
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                for (int j = 0; j < arr.Length - 1; j++)
+                {
+                    if (arr[j] > arr[j + 1])
+                    {
+                        int z = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = z;
+                    }
+                }
+            }
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Add(arr[i]);
+            }
+        }
     }
 }
