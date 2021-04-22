@@ -213,6 +213,13 @@ namespace Lab2
         }
 
         /// <summary>
+        /// Вывод бинарного дерева
+        /// </summary>
+        public void PrintTree()
+        {
+            PrintTree(RootNode);
+        }
+        /// <summary>
         /// Вывод бинарного дерева начиная с указанного узла
         /// </summary>
         /// <param name="startNode">Узел с которого начинается печать</param>
