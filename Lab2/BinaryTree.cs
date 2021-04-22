@@ -88,11 +88,16 @@ namespace Lab2
             }
         }
 
+        public void Remove(T data)
+        {
+            var foundNode = FindNode(data);
+            Remove(foundNode);
+        }
         /// <summary>
         /// Удаление узла бинарного дерева
         /// </summary>
         /// <param name="node">Узел для удаления</param>
-        public void Remove(BinaryTreeNode<T> node)
+        private void Remove(BinaryTreeNode<T> node)
         {
             if (node == null)
             {
