@@ -277,6 +277,15 @@ namespace Lab2
             }
         }
 
+        /// <summary>
+        /// Сумма правых значений
+        /// </summary>
+        public void SumKeys()
+        {
+            var s = 0;
+            SumKeys(RootNode, ref s, false);
+            Console.WriteLine("Сумма правых значений: " + s);
+        }
         private void SumKeys(BinaryTreeNode<T> node, ref int s, bool detailed, Side? side = null)
         {
             if (node != null)
