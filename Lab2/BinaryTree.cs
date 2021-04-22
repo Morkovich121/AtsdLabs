@@ -256,5 +256,16 @@ namespace Lab2
                 DeleteEven(startNode.RightNode, result, Side.Right);
             }
         }
+
+        private void CountNode(BinaryTreeNode<T> node, ref int s, bool detailed, Side? side = null)
+        {
+            if (node != null)
+            {
+                if (side == Side.Left)
+                    s += 1;
+                CountNode(node.LeftNode, ref s, detailed, Side.Left); // обойти левое поддерево
+                CountNode(node.RightNode, ref s, detailed, Side.Right); // обойти правое поддерево
+            }
+        }
     }
 }
