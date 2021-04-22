@@ -58,5 +58,10 @@ namespace Lab2
                 }
             }
         }
+
+        public BinaryTreeNode<T> Add(int data)
+        {
+            return Add(new BinaryTreeNode<T>(data));
+        }
     }
 }
