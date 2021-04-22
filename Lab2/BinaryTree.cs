@@ -296,5 +296,35 @@ namespace Lab2
                 SumKeys(node.RightNode, ref s, detailed, Side.Right); // обойти правое поддерево
             }
         }
+
+        /// <summary>
+        /// Поиск второго наибольшего значения
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
+        public void FindSecondLargest()
+        {
+            var s = "";
+            PrintSorted(RootNode, ref s);
+            var arr1 = s.Split(" ");
+            int[] arr = new int[arr1.Length - 1];
+            for (int i = 0; i < arr1.Length - 1; i++)
+            {
+                arr[i] = Int32.Parse(arr1[i]);
+            }
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                for (int j = 0; j < arr.Length - 1; j++)
+                {
+                    if (arr[j] < arr[j + 1])
+                    {
+                        int z = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = z;
+                    }
+                }
+            }
+            Console.WriteLine(arr[1]);
+        }
     }
 }
