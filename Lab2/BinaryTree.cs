@@ -362,6 +362,55 @@ namespace Lab2
                 EqualsBBST(startNode2.RightNode, startNode, ref result, Side.Right);
             }
         }
+        /// <summary>
+        /// Вывод массива в сортированном виде
+        /// </summary>
+        /// <returns></returns>
+        public int PrintSorted()
+        {
+            var s = "";
+            PrintSorted(RootNode, ref s);
+            var arr1 = s.Split(" ");
+            int[] arr = new int[arr1.Length - 1];
+            for (int i = 0; i < arr1.Length - 1; i++)
+            {
+                arr[i] = Int32.Parse(arr1[i]);
+            }
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                for (int j = 0; j < arr.Length - 1; j++)
+                {
+                    if (arr[j] > arr[j + 1])
+                    {
+                        int z = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = z;
+                    }
+                }
+            }
+            for (int i = 0; i < arr1.Length - 1; i++)
+            {
+                Console.Write(arr[i] + " ");
+            }
+            Console.WriteLine();
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                for (int j = 0; j < arr.Length - 1; j++)
+                {
+                    if (arr[j] < arr[j + 1])
+                    {
+                        int z = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = z;
+                    }
+                }
+            }
+            for (int i = 0; i < arr1.Length - 1; i++)
+            {
+                Console.Write(arr[i] + " ");
+            }
+            return arr[1];
+        }
         private void PrintSorted(BinaryTreeNode<T> node, ref string s, Side? side = null)
         {
             if (node != null)
