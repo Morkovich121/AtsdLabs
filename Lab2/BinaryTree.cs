@@ -420,5 +420,44 @@ namespace Lab2
                 PrintSorted(node.RightNode, ref s, Side.Right); // обойти правое поддерево
             }
         }
+
+        /// <summary>
+        /// Поиск среднего значения
+        /// </summary>
+        public void FindMiddle()
+        {
+            var s = "";
+            PrintSorted(RootNode, ref s);
+            var arr1 = s.Split(" ");
+            int[] arr = new int[arr1.Length - 1];
+            for (int i = 0; i < arr1.Length - 1; i++)
+            {
+                arr[i] = Int32.Parse(arr1[i]);
+            }
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                for (int j = 0; j < arr.Length - 1; j++)
+                {
+                    if (arr[j] < arr[j + 1])
+                    {
+                        int z = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = z;
+                    }
+                }
+            }
+            var middle = (arr[0] + arr[arr.Length - 1]) / 2;
+            int min = 100000;
+            var result = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (Math.Abs(arr[i] - middle) < min)
+                {
+                    min = Math.Abs(arr[i] - middle);
+                    result = arr[i];
+                }
+            }
+            Console.WriteLine(result);
+        }
     }
 }
