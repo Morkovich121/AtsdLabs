@@ -568,5 +568,19 @@ namespace Lab2
                 FatherNode(node.RightNode, ref result, k, Side.Right); // обойти правое поддерево
             }
         }
+
+        public void FatherNode(int k)
+        {
+            var result = -100000;
+            if (k == RootNode.Data)
+            {
+                Console.WriteLine(result);
+            }
+            else
+            {
+                FatherNode(RootNode, ref result, k);
+                Console.WriteLine(result);
+            }
+        }
     }
 }
