@@ -362,5 +362,14 @@ namespace Lab2
                 EqualsBBST(startNode2.RightNode, startNode, ref result, Side.Right);
             }
         }
+        private void PrintSorted(BinaryTreeNode<T> node, ref string s, Side? side = null)
+        {
+            if (node != null)
+            {
+                s += node.Data.ToString() + " ";
+                PrintSorted(node.LeftNode, ref s, Side.Left); // обойти левое поддерево
+                PrintSorted(node.RightNode, ref s, Side.Right); // обойти правое поддерево
+            }
+        }
     }
 }
