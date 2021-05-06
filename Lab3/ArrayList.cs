@@ -6,13 +6,13 @@ namespace lab3
 {
     class ArrayList<T> where T : IComparable
     {
-        public object[] array;
+        public T[] array;
         public int max;
         int last;
         public ArrayList(int m = 10)
         {
             max = m;
-            array = new object[max];
+            array = new T[max];
             last = -1;
         }
 
@@ -28,15 +28,15 @@ namespace lab3
         {
             return array.Length;
         }
-        public void AddItem(object item)
+        public void AddItem(T item)
         {
             if (isFull()) Resize(ref array, array.Length + 1);
             array[++last] = item;
 
         }
-        private void Resize(ref object[] array, int leng)
+        private void Resize(ref T[] array, int leng)
         {
-            object[] array2 = new object[leng];
+            T[] array2 = new T[leng];
             for (int i = 0; i < array.Length; i++)
             {
                 array2[i] = array[i];
@@ -44,5 +44,13 @@ namespace lab3
             array = array2;
         }
 
+        public void PrintList()
+        {
+            for(int i = 0; i <= last; i++)
+            {
+                Console.Write(array[i]+" ");
+            }
+            Console.WriteLine();
+        }
     }
 }
