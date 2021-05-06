@@ -72,18 +72,18 @@ namespace lab3
                 else break;
             }
         }
-        public void Heap_make(T[] array, int n)
+        public void HeapMake(T[] array, int n)
         {
             for (int i = n - 1; i >= 0; i--)
             {
                 Heapify(array, i, n);
             }
         }
-        public void Heap_sort()
+        public void HeapSort()
         {
             T temp;
             var n = last + 1;
-            Heap_make(array, n);
+            HeapMake(array, n);
             while (n > 0)
             {
                 temp = array[0];
