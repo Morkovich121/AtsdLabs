@@ -13,6 +13,7 @@ namespace lab3
             arr.AddItem(1);
             arr.PrintList();
             arr.HeapSort();
+
             arr.PrintList();
         }
     }
