@@ -52,5 +52,46 @@ namespace lab3
             }
             Console.WriteLine();
         }
+        public void Heapify(T[] array, int pos, int size)
+        {
+            T temp;
+            while (2 * pos + 1 < size)
+            {
+                int t = 2 * pos + 1;
+                if (2 * pos + 2 < size && array[2 * pos + 2].CompareTo(array[t])>=0)
+                {
+                    t = 2 * pos + 2;
+                }
+                if (array[pos].CompareTo(array[t])<0)
+                {
+                    temp = array[pos];
+                    array[pos] = array[t];
+                    array[t] = temp;
+                    pos = t;
+                }
+                else break;
+            }
+        }
+        public void Heap_make(T[] array, int n)
+        {
+            for (int i = n - 1; i >= 0; i--)
+            {
+                Heapify(array, i, n);
+            }
+        }
+        public void Heap_sort()
+        {
+            T temp;
+            var n = last + 1;
+            Heap_make(array, n);
+            while (n > 0)
+            {
+                temp = array[0];
+                array[0] = array[n - 1];
+                array[n - 1] = temp;
+                n--;
+                Heapify(array, 0, n);
+            }
+        }
     }
 }
