@@ -32,5 +32,19 @@ namespace Labs4
                 adjacencyMatrix[edges[i].y - 1, edges[i].x - 1] = edges[i].weight;
             }
         }
+        public void PrintGraph()
+        {
+            Console.WriteLine("Ваш граф:");
+            Console.WriteLine();
+            for (int i = 0; i < vertices; i++)
+            {
+                for (int j = 0; j < vertices; j++)
+                {
+                    if (adjacencyMatrix[i, j] == 0) adjacencyMatrix[i, j] = 101;
+                    Console.Write(adjacencyMatrix[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+        }
     }
 }
