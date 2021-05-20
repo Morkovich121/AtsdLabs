@@ -57,5 +57,11 @@ namespace Labs4
                 }
             }
         }
+        public void clear()
+        {
+            Head = null;
+            Tail = null;
+            Count = 0;
+        }
     }
 }
