@@ -12,6 +12,13 @@ namespace Labs4
         {
             Data = data;
         }
-        
+        public void setItem(T i)
+        {
+            Data = i;
+        }
+        public void setNext(Item<T> n)
+        {
+            Next = n;
+        }
     }
 }
