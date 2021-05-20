@@ -147,5 +147,46 @@ namespace Labs4
 
             return min_index;
         }
+        public void Prim(LinkedList<string> arr)
+        {
+
+            int[] parent = new int[vertices];
+
+            int[] key = new int[vertices];
+
+            bool[] mstSet = new bool[vertices];
+
+            for (int i = 0; i < vertices; i++)
+            {
+                key[i] = int.MaxValue;
+                mstSet[i] = false;
+            }
+
+            key[0] = 0;
+            parent[0] = -1;
+
+            for (int count = 0; count < vertices - 1; count++)
+            {
+
+                int u = minKey(key, mstSet);
+
+                mstSet[u] = true;
+
+                for (int v = 0; v < vertices; v++)
+
+
+                    if (adjacencyMatrix[u, v] != 0 && mstSet[v] == false &&
+                                            adjacencyMatrix[u, v] < key[v])
+                    {
+                        parent[v] = u;
+                        key[v] = adjacencyMatrix[u, v];
+                    }
+            }
+
+            for (int i = 1; i < vertices; i++)
+            {
+                arr.AddItem(((parent[i] + 1) + " " + (i + 1)).ToString());
+            }
+        }
     }
 }
