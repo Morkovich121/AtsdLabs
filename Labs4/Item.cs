@@ -4,7 +4,14 @@ using System.Text;
 
 namespace Labs4
 {
-    class Item
+    public class Item<T>
     {
+        public T Data;
+        public Item<T> Next;
+        public Item(T data)
+        {
+            Data = data;
+        }
+        
     }
 }
