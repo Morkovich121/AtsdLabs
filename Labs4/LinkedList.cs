@@ -22,4 +22,22 @@ namespace Labs4
             Tail = item;
             Count = 1;
         }
+        public void AddItem(T data)
+        {
+            var item = new Item<T>(data);
+            if (Tail != null)
+            {
+                Tail.Next = item;
+                Tail = item;
+                Count++;
+            }
+            else
+            {
+                Head = item;
+                Tail = item;
+                Count = 1;
+            }
+            //sort();
+        }
     }
+}
