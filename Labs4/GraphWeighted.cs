@@ -82,5 +82,56 @@ namespace Labs4
                 return c;
             }
         }
+        public void Dijkstra(int begin_index)
+        {
+            int[] d = new int[vertices];
+            int[] v = new int[vertices];
+            begin_index -= 1;
+
+            int temp, minindex, min;
+
+            for (int i = 0; i < vertices; i++)
+            {
+                d[i] = 10000;
+                v[i] = 1;
+            }
+            d[begin_index] = 0;
+
+            do
+            {
+                minindex = 10000;
+                min = 10000;
+                for (int i = 0; i < vertices; i++)
+                {
+                    if ((v[i] == 1) && (d[i] < min))
+                    {
+                        min = d[i];
+                        minindex = i;
+                    }
+                }
+                if (minindex != 10000)
+                {
+                    for (int i = 0; i < vertices; i++)
+                    {
+                        if (adjacencyMatrix[minindex, i] > 0)
+                        {
+                            temp = min + adjacencyMatrix[minindex, i];
+                            if (temp < d[i])
+                            {
+                                d[i] = temp;
+                            }
+                        }
+                    }
+                    v[minindex] = 0;
+                }
+            } while (minindex < 10000);
+
+            Console.WriteLine("Кратчайшие расстояния до вершин:");
+            Console.WriteLine();
+            for (int i = 0; i < vertices; i++)
+                Console.WriteLine("До вершины номер " + (i + 1) + ": " + d[i] + " ");
+
+
+        }
     }
 }
