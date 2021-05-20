@@ -37,7 +37,25 @@ namespace Labs4
                 Tail = item;
                 Count = 1;
             }
-            //sort();
+            sort();
+        }
+        public void sort()
+        {
+            for (int j = 0; j < Count; j++)
+            {
+                var current = Head;
+
+                for (int i = 0; i < Count - 1; i++)
+                {
+                    if (current.Next != null && current.Data.CompareTo(current.Next.Data) > 0)
+                    {
+                        var temp = current.Data;
+                        current.setItem(current.Next.Data);
+                        current.Next.setItem(temp);
+                    }
+                    current = current.Next;
+                }
+            }
         }
     }
 }
