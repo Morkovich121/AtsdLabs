@@ -133,5 +133,19 @@ namespace Labs4
 
 
         }
+        public int minKey(int[] key, bool[] mstSet)
+        {
+
+            int min = int.MaxValue, min_index = -1;
+
+            for (int v = 0; v < vertices; v++)
+                if (mstSet[v] == false && key[v] < min)
+                {
+                    min = key[v];
+                    min_index = v;
+                }
+
+            return min_index;
+        }
     }
 }
