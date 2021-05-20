@@ -63,5 +63,18 @@ namespace Labs4
             Tail = null;
             Count = 0;
         }
+        public void PrintList()
+        {
+            var current = Head;
+            var result = "";
+
+            while (current != null)
+            {
+                result += current.Data;
+                result += ", ";
+                current = current.Next;
+            }
+            Console.WriteLine(result);
+        }
     }
 }
