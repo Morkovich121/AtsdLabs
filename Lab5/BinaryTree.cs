@@ -70,8 +70,39 @@ namespace Lab5
             return Add(new BinaryTreeNode<T>(data));
         }
         /// <summary>
-        /// Копирует выбранное дерево
+        /// Проверка равны ли 2 дерева
         /// </summary>
         /// <param name="obj"></param>
+        public void EqualsBBST(BinaryTree<T> obj)
+        {
+            var res = 0;
+            EqualsBBST(obj.RootNode, RootNode, ref res);
+            Console.WriteLine(res == 0);
+        }
+        private void EqualsBBST(BinaryTreeNode<T> startNode2, BinaryTreeNode<T> startNode, ref int result, Side? side = null)
+        {
+            if (startNode != null && startNode2 != null)
+            {
+                if (startNode.Data != startNode2.Data)
+                    result = -1;
+                //рекурсивный вызов для левой и правой веток
+                EqualsBBST(startNode2.LeftNode, startNode.LeftNode, ref result, Side.Left);
+                EqualsBBST(startNode2.RightNode, startNode.RightNode, ref result, Side.Right);
+            }
+            else
+                if (startNode2 == null && startNode != null)
+            {
+                result = -1;
+                EqualsBBST(startNode2, startNode.LeftNode, ref result, Side.Left);
+                EqualsBBST(startNode2, startNode.RightNode, ref result, Side.Right);
+            }
+            else
+                    if (startNode2 != null && startNode == null)
+            {
+                result = -1;
+                EqualsBBST(startNode2.LeftNode, startNode, ref result, Side.Left);
+                EqualsBBST(startNode2.RightNode, startNode, ref result, Side.Right);
+            }
+        }
     }
 }
