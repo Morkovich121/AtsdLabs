@@ -6,7 +6,9 @@ namespace Lab5
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var binary1 = new BinaryTree<int>();
+            var binary2 = new BinaryTree<int>();
+            Console.WriteLine(binary1.Equals(binary2));
         }
     }
 }
